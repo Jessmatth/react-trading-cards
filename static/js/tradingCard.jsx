@@ -61,6 +61,7 @@ console.log(tradingCardData);
 //   },
 // ];
 
+
 function TradingCard(props) {
   return (
     <div className="card">
@@ -71,27 +72,59 @@ function TradingCard(props) {
   );
 }
 
-ReactDOM.render(
-  <TradingCard name="Balloonicorn" skill="video games" imgUrl="/static/img/balloonicorn.jpg" />,
-  document.querySelector('#balloonicorn'),
-);
+for (const currentCard of tradingCardData) {
+  console.log(currentCard.name, currentCard.skill);
+}
 
-ReactDOM.render(
-  <TradingCard name="Float" skill="baking pretzels" imgUrl="/static/img/float.jpg" />,
-  document.querySelector('#float'),
-);
+// function TradingCardContainer() {
+//   return (
+//     <div>
+//       Success!
+//     </div>
+//   );
+// }
 
-ReactDOM.render(
-  <TradingCard name="Llambda" skill="knitting scarves" imgUrl="/static/img/llambda.jpg" />,
-  document.querySelector('#llambda'),
-);
+function TradingCardContainer() {
+  const tradingCards = [];
 
-ReactDOM.render(
-  <TradingCard name="merge" skill="swim sleeping" imgUrl="/static/img/merge.png" />,
-  document.querySelector('#merge'),
-);
+  for (const currentCard of tradingCardData) {
+    tradingCards.push(
+      <TradingCard
+        name={currentCard.name}
+        skill={currentCard.skill}
+        imgUrl={currentCard.imgUrl}
+      />
+    );
+  }
 
-ReactDOM.render(
-  <TradingCard name="off-by-one" skill="mob violence" imgUrl="/static/img/off-by-one.jpeg" />,
-  document.querySelector('#off-by-one'),
-);
+  return (
+    <React.Fragment>
+      {tradingCards}
+    </React.Fragment>
+  );
+}
+ReactDOM.render(<TradingCardContainer />, document.querySelector("#all-cards"));
+// ReactDOM.render(
+//   <TradingCard name="Balloonicorn" skill="video games" imgUrl="/static/img/balloonicorn.jpg" />,
+//   document.querySelector('#balloonicorn'),
+// );
+
+// ReactDOM.render(
+//   <TradingCard name="Float" skill="baking pretzels" imgUrl="/static/img/float.jpg" />,
+//   document.querySelector('#float'),
+// );
+
+// ReactDOM.render(
+//   <TradingCard name="Llambda" skill="knitting scarves" imgUrl="/static/img/llambda.jpg" />,
+//   document.querySelector('#llambda'),
+// );
+
+// ReactDOM.render(
+//   <TradingCard name="merge" skill="swim sleeping" imgUrl="/static/img/merge.png" />,
+//   document.querySelector('#merge'),
+// );
+
+// ReactDOM.render(
+//   <TradingCard name="off-by-one" skill="mob violence" imgUrl="/static/img/off-by-one.jpeg" />,
+//   document.querySelector('#off-by-one'),
+// );
